@@ -1,0 +1,22 @@
+<div
+  class="relative flex flex-col items-center bg-white shadow-2xl border-2 border-zinc-300 rounded-2xl m-2 p-5 w-80 h-150 cursor-pointer"
+  [routerLink]="['/product', product.id]"
+>
+  <div class="absolute left-3 top-3 bg-red-500 py-1 px-3 rounded-2xl text-white text-l text-center">
+    <span>{{product.category}}</span>
+  </div>
+
+  <img [src]="product.image" class="object-contain w-[200px] h-[300px]">
+  <h1 class="line-clamp-1 text-xl font-bold font-sans">{{product.title}}</h1>
+  <div class="flex text-xl my-3">
+    <p class="bg-yellow-300 py-1 px-3 rounded-2xl">{{product.price | currency}} or {{product.price | toKHR}}</p>
+  </div>
+  <p class="line-clamp-3">{{product.description}}</p>
+
+  <button
+    class="bg-white border-2 border-blue-400 rounded-2xl p-3 mt-5 hover:bg-blue-400 hover:text-white transition-all cursor-pointer"
+    (click)="addProductToCart(); $event.stopPropagation()"
+  >
+    Add To Cart
+  </button>
+</div>
